@@ -1,0 +1,65 @@
+site_name: Ember
+site_url: https://ember.ai # Example
+theme:
+  name: material # OOTB themes: mkdocs, readthedocs, material
+  logo: assets/logo_ember_icon@2x.png
+  favicon: assets/logo_ember_icon@2x.png
+  # For formatting options see https://squidfunk.github.io/mkdocs-material/setup/
+  font:
+    text: Calibri
+    code: Red Hat Mono
+  features:
+    - navigation.footer
+    - navigation.tabs
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: blue
+      accent: yellow
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: green
+markdown_extensions:
+  - attr_list
+  # For Emojis :)
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # For python code blocks e.g.
+  #   ```py title="my.py" linenums="1" hl_lines="1"
+  #   print("hello world!")
+  #   ```
+  #   See https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  # For diagrams  
+  # See https://squidfunk.github.io/mkdocs-material/reference/diagrams/
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  # For Tabs created in md with e.g.
+  #   === "Tab 1"
+  # TODO could be nice for the setup/install pages with alt. tools
+  - pymdownx.tabbed:
+      alternate_style: true
+  # Callouts created in md with e.g.
+  #   !!! info "Info Title"
+  #   ??? note "Collapsable Note Title"
+  #   See https://squidfunk.github.io/mkdocs-material/reference/admonitions/
+  - admonition 
+  - pymdownx.details
+  # TODO add shell/bash/... pigments
+# Lots more at https://squidfunk.github.io/mkdocs-material
