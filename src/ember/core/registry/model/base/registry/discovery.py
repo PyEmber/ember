@@ -16,6 +16,7 @@ from ember.core.registry.model.providers.deepmind.deepmind_discovery import (
     DeepmindDiscovery,
 )
 from ember.core.registry.model.providers.openai.openai_discovery import OpenAIDiscovery
+from ember.core.registry.model.providers.litellm.litellm_discovery import LitellmDiscovery
 
 logger: logging.Logger = logging.getLogger(__name__)
 # Set default log level to WARNING to reduce verbosity
@@ -79,6 +80,11 @@ class ModelDiscoveryService:
                 DeepmindDiscovery,
                 "GOOGLE_API_KEY",
                 lambda: {"api_key": os.environ.get("GOOGLE_API_KEY", "")},
+            ),
+            (
+                LitellmDiscovery,
+                "LITELLM_API_KEY",
+                lambda: {"api_key": os.environ.get("LITELLM_API_KEY", "")},
             ),
         ]
 
@@ -264,6 +270,7 @@ class ModelDiscoveryService:
             "anthropic": os.environ.get("ANTHROPIC_API_KEY", ""),
             "google": os.environ.get("GOOGLE_API_KEY", ""),
             "deepmind": os.environ.get("GOOGLE_API_KEY", ""),  # Uses same key as Google
+            "litellm": os.environ.get("LITELLM_API_KEY", ""),
             "mock": os.environ.get("MOCK_API_KEY", ""),  # For testing purposes
         }
 
