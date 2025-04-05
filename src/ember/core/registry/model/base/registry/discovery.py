@@ -17,6 +17,10 @@ from ember.core.registry.model.providers.deepmind.deepmind_discovery import (
 )
 from ember.core.registry.model.providers.openai.openai_discovery import OpenAIDiscovery
 
+from ember.core.registry.model.providers.huggingface.huggingface_discovery import (
+    HuggingFaceDiscovery,
+) 
+
 logger: logging.Logger = logging.getLogger(__name__)
 # Set default log level to WARNING to reduce verbosity
 logger.setLevel(logging.WARNING)
@@ -79,6 +83,11 @@ class ModelDiscoveryService:
                 DeepmindDiscovery,
                 "GOOGLE_API_KEY",
                 lambda: {"api_key": os.environ.get("GOOGLE_API_KEY", "")},
+            ),
+            (
+                HuggingFaceDiscovery,
+                "HUGGINGFACE_API_KEY", #Now searches for Hugging Face API key
+                lambda: {"api_key": os.environ.get("HUGGINGFACE_API_KEY", "")},
             ),
         ]
 
@@ -264,6 +273,7 @@ class ModelDiscoveryService:
             "anthropic": os.environ.get("ANTHROPIC_API_KEY", ""),
             "google": os.environ.get("GOOGLE_API_KEY", ""),
             "deepmind": os.environ.get("GOOGLE_API_KEY", ""),  # Uses same key as Google
+            "huggingface": os.environ.get("HUGGINGFACE_API_KEY", ""),
             "mock": os.environ.get("MOCK_API_KEY", ""),  # For testing purposes
         }
 

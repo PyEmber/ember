@@ -137,6 +137,7 @@ def _initialize_api_keys_from_env(config_manager: ConfigManager) -> None:
         "OPENAI_API_KEY": "openai",
         "ANTHROPIC_API_KEY": "anthropic",
         "GOOGLE_API_KEY": "google",
+        "HUGGINGFACE_API_KEY": "huggingface",
     }
 
     # Set API keys from environment if available
