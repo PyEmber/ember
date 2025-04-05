@@ -1,0 +1,15 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Example test files
+ember_test
+
+# Environment Files
+.venv
+.env
+
+# Dependencies
+ember_ai.egg-info
+uv.lock

@@ -40,7 +40,7 @@ This guide provides detailed instructions for installing Ember in different envi
    ```bash
    # Clone the repository
    git clone https://github.com/pyember/ember.git
-   cd ember
+   cd pyember
    
    # Install in development mode (editable installation)
    uv pip install -e "."
